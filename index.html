@@ -4,17 +4,25 @@
 </head>
 <body>
 	<script>
-        let num = Math.floor(Math.random() * 11);
+        let num = Math.floor(Math.random() * 101);
+        let guess = prompt("Guess a number between 1 and 100");
+        let correct = false;
+        let tries = 0;
 
-        let guess = prompt("guess a number between 1 and 10");
-
-        if(num == guess)
-        {
-            alert("Got it!");
-        }else{
-            alert("Sorry!  You guessed " + guess + " and the number was " + num);
+        while(correct === false){
+            tries++;
+            if(num == guess){
+                correct = true;
+                // alert("You got it right already???");
+            }else{
+                if(guess < num){
+                    guess = prompt("You a bit too low, bro");
+                }else{
+                    guess = prompt("You a bit to high, guy");
+                }
+            }
         }
-
+        alert("Good job! The number was " + guess + "and it only took you " + tries + "tries!")
 	</script>
 </body>
 </html>
